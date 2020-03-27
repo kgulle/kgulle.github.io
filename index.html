@@ -3,6 +3,7 @@
 <div class="container">
   <h1 id="head"><b> YUSUF GÜLLE </b><i><BR><font color="#656565" size="7">(Herşeyimiz)</font></i></h1>
   <ul>
+  	<li><span id="years"></span><font color="#454545">Yil</font></li>
     <li><span id="months"></span><font color="#454545">Ay</font></li>
     <li><span id="days"></span><font color="#454545">Gün</font></li>
     <li><span id="hours"></span><font color="#454545">Saat</font></li>
@@ -18,17 +19,21 @@ const second = 1000,
       minute = second * 60,
       hour = minute * 60,
       day = hour * 24;
+      
+var birthDate = new Date('Mar 19, 2017 17:00:00');
+var nowDate = new Date();
 
+
+ 
 let countDown = new Date('Jun 19, 2019 17:00:00').getTime(),
 x = setInterval(function() {
 let now = new Date().getTime(),
 distance = now - countDown;
 
-  
-document.getElementById('months').innerText = monthDiff(countDown,now),
+document.getElementById('years').innerText = nowDate.getFullYear() - birthDate.getFullYear()-1,
+document.getElementById('months').innerText = (nowDate.getMonth() - birthDate.getMonth() +12) % 12,
 document.getElementById('week').innerText = Math.floor(distance / (day) / 7) +'.'+ Math.floor((distance / (day) % 7)) ,
-document.getElementById('days').innerText = (countDown.getDate()-now.getDate()),   
-//document.getElementById('days').innerText = Math.floor(distance / (day) -30 * (Math.floor(distance / (day) / 30))),        
+document.getElementById('days').innerText = Math.abs(nowDate.getDate() - birthDate.getDate()),        
 document.getElementById('days2').innerText = Math.floor(distance / (day)),
 document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
 document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
@@ -42,15 +47,15 @@ document.getElementById('seconds').innerText = Math.floor((distance % (minute)) 
 
 }, second)
     
-
-function monthDiff(d1, d2) {
+    
+  function monthDiff(d1, d2) {
     var months;
     months = (d2.getFullYear() - d1.getFullYear()) * 12;
-    months -= d1.getMonth() + 1;
+    months -= d1.getMonth();
     months += d2.getMonth();
     return months <= 0 ? 0 : months;
-}
-  
+}  
+    
 </script>
 
 <style>
