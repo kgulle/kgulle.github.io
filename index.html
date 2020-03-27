@@ -25,9 +25,10 @@ let now = new Date().getTime(),
 distance = now - countDown;
 
   
-//document.getElementById('months').innerText = monthDiff(countDown,now),
+document.getElementById('months').innerText = monthDiff(countDown,now),
 document.getElementById('week').innerText = Math.floor(distance / (day) / 7) +'.'+ Math.floor((distance / (day) % 7)) ,
-document.getElementById('days').innerText = Math.floor(distance / (day) -30 * (Math.floor(distance / (day) / 30))),        
+document.getElementById('days').innerText = countDown.getDate()-now.getDate(),   
+//document.getElementById('days').innerText = Math.floor(distance / (day) -30 * (Math.floor(distance / (day) / 30))),        
 document.getElementById('days2').innerText = Math.floor(distance / (day)),
 document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
 document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
