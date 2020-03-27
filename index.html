@@ -1,0 +1,106 @@
+
+<title></title>
+<div class="container">
+  <h1 id="head"><b> YUSUF GÜLLE </b><i><BR><font color="#656565" size="7">(Herşeyimiz)</font></i></h1>
+  <ul>
+    <li><span id="months"></span><font color="#454545">Ay</font></li>
+    <li><span id="days"></span><font color="#454545">Gün</font></li>
+    <li><span id="hours"></span><font color="#454545">Saat</font></li>
+    <li><span id="minutes"></span><font color="#454545">Dakika</font></li>
+    <li><span id="seconds"></span><font color="#454545">Saniye</font></li>
+  </ul>
+  <li><span id="days2"></span><font color="#454545">Gün</font></li>
+<li><span id="week"></span><font color="#454545">Hafta.Gün</font></li>
+</div>
+
+<script>
+const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+let countDown = new Date('Jun 19, 2019 17:00:00').getTime(),
+x = setInterval(function() {
+let now = new Date().getTime(),
+distance = now - countDown;
+
+document.getElementById('months').innerText = Math.floor(distance / (day) / 30),
+document.getElementById('week').innerText = Math.floor(distance / (day) / 7) +'.'+ Math.floor((distance / (day) % 7)) ,
+document.getElementById('days').innerText = Math.floor(distance / (day) -30 * (Math.floor(distance / (day) / 30))),        
+document.getElementById('days2').innerText = Math.floor(distance / (day)),
+document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+      
+      //do something later when date is reached
+      //if (distance < 0) {
+      //  clearInterval(x);
+      //  'IT'S MY BIRTHDAY!;
+      //}
+
+}, second)
+    
+</script>
+
+<style>
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #5dbcff;
+  
+}
+
+.container {
+
+  text-align: center;
+}
+
+h1 {
+font-weight: normal;
+font-size:75px;
+color:red; 
+font-size: 12px;
+background-color: #ffcaca;
+background-size: 10px 10px;
+background-repeat:no-repeat;
+background-position:20px;
+padding:40px 40px 40px 40px;
+margin:40px;
+border-radius: 25px;
+border: 2px solid red;
+position:relative;
+display: block;
+font-size: 5.5rem;
+}
+
+li {
+  display: inline-block;
+  font-size: 2.3em;
+  list-style-position:inside;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+li span {
+color:red; 
+font-size: 12px;
+background-color: #ffcaca;
+background-size: 10px 10px;
+background-repeat:no-repeat;
+background-position:20px;
+padding:40px 40px 40px 40px;
+border-radius: 25px;
+border: 2px solid red;
+
+position:relative;
+  display: block;
+  font-size: 5.5rem;
+}
+
+</style>
