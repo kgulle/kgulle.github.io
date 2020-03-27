@@ -24,7 +24,8 @@ x = setInterval(function() {
 let now = new Date().getTime(),
 distance = now - countDown;
 
-document.getElementById('months').innerText = Math.floor(distance / (day) / 30),
+  
+document.getElementById('months').innerText = monthDiff(countDown,now),
 document.getElementById('week').innerText = Math.floor(distance / (day) / 7) +'.'+ Math.floor((distance / (day) % 7)) ,
 document.getElementById('days').innerText = Math.floor(distance / (day) -30 * (Math.floor(distance / (day) / 30))),        
 document.getElementById('days2').innerText = Math.floor(distance / (day)),
@@ -40,6 +41,15 @@ document.getElementById('seconds').innerText = Math.floor((distance % (minute)) 
 
 }, second)
     
+
+function monthDiff(d1, d2) {
+    var months;
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth() + 1;
+    months += d2.getMonth();
+    return months <= 0 ? 0 : months;
+}
+  
 </script>
 
 <style>
