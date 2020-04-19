@@ -33,7 +33,7 @@ distance = now - countDown;
 document.getElementById('years').innerText = nowDate.getFullYear() - birthDate.getFullYear()-1,
 document.getElementById('months').innerText = (nowDate.getMonth() - birthDate.getMonth() +11) % 12,
 document.getElementById('week').innerText = Math.floor(distance / (day) / 7) +'.'+ Math.floor((distance / (day) % 7)) ,
-document.getElementById('days').innerText = (1+getDaysInMonth(nowDate.getMonth(), nowDate.getFullYear()) + nowDate.getDate() - birthDate.getDate())
+document.getElementById('days').innerText = (getDaysInMonth(nowDate.getMonth(), nowDate.getFullYear()) + nowDate.getDate() - birthDate.getDate())
   //Math.abs(nowDate.getDate() - birthDate.getDate()),        
 //document.getElementById('days').innerText = Math.abs(nowDate.getDate() - birthDate.getDate()),        
 document.getElementById('days2').innerText = Math.floor(distance / (day)),
