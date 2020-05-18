@@ -1,7 +1,7 @@
 
 <title></title>
 <div class="container">
-  <h1 id="head"><b> ALİ ASAF GÖNDOĞDU </b><i><BR><font color="#656565" size="7">(Herşeyimiz)</font></i></h1>
+  <h1 id="head"><b> YUSUF GÜLLE </b><i><BR><font color="#656565" size="7">(Herşeyimiz)</font></i></h1>
   <ul>
   	<li><span id="years"></span><font color="#454545">Yil</font></li>
     <li><span id="months"></span><font color="#454545">Ay</font></li>
@@ -14,28 +14,76 @@
 <li><span id="week"></span><font color="#454545">Hafta.Gün</font></li>
 </div>
 
+
+
+
+<script type = "text/JavaScript" src = "https://MomentJS.com/downloads/moment.js"></script>
 <script>
+   // moment().format();
+	
+	
+	
+	window.setInterval(function(){
+  /// call your function here
+  
+var dogum = moment('2020-03-10 09:09:00');
+var simdi = moment();
+var diff = simdi.diff(dogum);
+
+var diffInYears = simdi.diff(dogum, 'years');
+var diffInDays = simdi.diff(dogum, 'days');
+var diffInMSeconds = simdi.diff(dogum, 'seconds') % 60;
+var diffInMHours = simdi.diff(dogum, 'hours') % 24;
+var diffInMinutes = simdi.diff(dogum, 'minutes') % 60;
+var diffInMonths = simdi.diff(dogum, 'months') % 12;
+var diffInWeeks = simdi.diff(dogum, 'weeks');
+
+
+var years = simdi.diff(dogum, 'year');
+dogum.add(years, 'years');
+var months = simdi.diff(dogum, 'months');
+dogum.add(months, 'months');
+var days = simdi.diff(dogum, 'days');
+
+
+
+
+document.getElementById('years').innerText = diffInYears;
+document.getElementById('months').innerText = diffInMonths;
+document.getElementById('week').innerText = diffInWeeks +'.'+ Math.floor((diffInDays % 7));
+document.getElementById('days').innerText = days;
+document.getElementById('days2').innerText = diffInDays;
+document.getElementById('hours').innerText = diffInMHours;
+document.getElementById('minutes').innerText = diffInMinutes;
+document.getElementById('seconds').innerText = diffInMSeconds;
+
+}, 1000);
+
+
+
+
+</script>
+<script>
+/*
 const second = 1000,
       minute = second * 60,
       hour = minute * 60,
       day = hour * 24;
       
-var birthDate = new Date('Mar 10, 2020 17:00:00');
+var birthDate = new Date('Mar 19, 2017 17:00:00');
 var nowDate = new Date();
 
 
  
-let countDown = new Date('Mar 10, 2020 17:00:00').getTime(),
+let countDown = new Date('Jun 19, 2019 17:00:00').getTime(),
 x = setInterval(function() {
 let now = new Date().getTime(),
 distance = now - countDown;
 
 document.getElementById('years').innerText = nowDate.getFullYear() - birthDate.getFullYear()-1,
-document.getElementById('months').innerText = (nowDate.getMonth() - birthDate.getMonth() +11) % 12,
+document.getElementById('months').innerText = (nowDate.getMonth() - birthDate.getMonth() +12) % 12,
 document.getElementById('week').innerText = Math.floor(distance / (day) / 7) +'.'+ Math.floor((distance / (day) % 7)) ,
-document.getElementById('days').innerText = (getDaysInMonth(nowDate.getMonth(), nowDate.getFullYear()) + nowDate.getDate() - birthDate.getDate())
-  //Math.abs(nowDate.getDate() - birthDate.getDate()),        
-//document.getElementById('days').innerText = Math.abs(nowDate.getDate() - birthDate.getDate()),        
+document.getElementById('days').innerText = Math.abs(nowDate.getDate() - birthDate.getDate()),        
 document.getElementById('days2').innerText = Math.floor(distance / (day)),
 document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
 document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
@@ -57,24 +105,8 @@ document.getElementById('seconds').innerText = Math.floor((distance % (minute)) 
     months += d2.getMonth();
     return months <= 0 ? 0 : months;
 }  
-    
-  //alert(getDaysInMonth(nowDate.getMonth(), nowDate.getFullYear()));
-
-  
-  var getDaysInMonth = function(month,year) {
-  // Here January is 1 based
-  //Day 0 is the last day in the previous month
- return new Date(year, month+1, 0).getDate();
-// Here January is 0 based
-// return new Date(year, month+1, 0).getDate();
-};
-  
-    console.log(nowDate.getMonth());
-console.log(nowDate.getFullYear());
-  console.log(getDaysInMonth(nowDate.getMonth(),nowDate.getFullYear()));
-    //console.log(getDaysInMonth(nowDate.getMonth(), nowDate.getFullYear()));
-
-  </script>
+    */
+</script>
 
 <style>
 
