@@ -1,1 +1,172 @@
-Hi
+
+<title></title>
+<div class="container">
+  <h1 id="head"><b> KAYRA GÜNDOĞDU  </b><i><BR><font color="#656565" size="7">(Herşeyimiz)</font></i></h1>
+  <ul>
+  	<li><span id="years"></span><font color="#454545">Yil</font></li>
+    <li><span id="months"></span><font color="#454545">Ay</font></li>
+    <li><span id="days"></span><font color="#454545">Gün</font></li>
+    <li><span id="hours"></span><font color="#454545">Saat</font></li>
+    <li><span id="minutes"></span><font color="#454545">Dakika</font></li>
+    <li><span id="seconds"></span><font color="#454545">Saniye</font></li>
+  </ul>
+  <li><span id="days2"></span><font color="#454545">Gün</font></li>
+<li><span id="week"></span><font color="#454545">Hafta.Gün</font></li>
+</div>
+
+
+
+
+<script type = "text/JavaScript" src = "https://MomentJS.com/downloads/moment.js"></script>
+<script>
+   // moment().format();
+	
+	
+	
+	window.setInterval(function(){
+  /// call your function here
+  
+var dogum = moment('2021-05-06 14:51:00');
+var simdi = moment();
+var diff = simdi.diff(dogum);
+
+var diffInYears = simdi.diff(dogum, 'years');
+var diffInDays = simdi.diff(dogum, 'days');
+var diffInMSeconds = simdi.diff(dogum, 'seconds') % 60;
+var diffInMHours = simdi.diff(dogum, 'hours') % 24;
+var diffInMinutes = simdi.diff(dogum, 'minutes') % 60;
+var diffInMonths = simdi.diff(dogum, 'months') % 12;
+var diffInWeeks = simdi.diff(dogum, 'weeks');
+
+
+var years = simdi.diff(dogum, 'year');
+dogum.add(years, 'years');
+var months = simdi.diff(dogum, 'months');
+dogum.add(months, 'months');
+var days = simdi.diff(dogum, 'days');
+
+
+
+
+document.getElementById('years').innerText = diffInYears;
+document.getElementById('months').innerText = diffInMonths;
+document.getElementById('week').innerText = diffInWeeks +'.'+ Math.floor((diffInDays % 7));
+document.getElementById('days').innerText = days;
+document.getElementById('days2').innerText = diffInDays;
+document.getElementById('hours').innerText = diffInMHours;
+document.getElementById('minutes').innerText = diffInMinutes;
+document.getElementById('seconds').innerText = diffInMSeconds;
+
+}, 1000);
+
+
+
+
+</script>
+<script>
+/*
+const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+      
+var birthDate = new Date('Mar 19, 2017 17:00:00');
+var nowDate = new Date();
+
+
+ 
+let countDown = new Date('Jun 19, 2019 17:00:00').getTime(),
+x = setInterval(function() {
+let now = new Date().getTime(),
+distance = now - countDown;
+
+document.getElementById('years').innerText = nowDate.getFullYear() - birthDate.getFullYear()-1,
+document.getElementById('months').innerText = (nowDate.getMonth() - birthDate.getMonth() +12) % 12,
+document.getElementById('week').innerText = Math.floor(distance / (day) / 7) +'.'+ Math.floor((distance / (day) % 7)) ,
+document.getElementById('days').innerText = Math.abs(nowDate.getDate() - birthDate.getDate()),        
+document.getElementById('days2').innerText = Math.floor(distance / (day)),
+document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+      
+      //do something later when date is reached
+      //if (distance < 0) {
+      //  clearInterval(x);
+      //  'IT'S MY BIRTHDAY!;
+      //}
+
+}, second)
+    
+    
+  function monthDiff(d1, d2) {
+    var months;
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth();
+    months += d2.getMonth();
+    return months <= 0 ? 0 : months;
+}  
+    */
+</script>
+
+<style>
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #5dbcff;
+  
+}
+
+.container {
+
+  text-align: center;
+}
+
+h1 {
+font-weight: normal;
+font-size:75px;
+color:red; 
+font-size: 12px;
+background-color: #ffcaca;
+background-size: 10px 10px;
+background-repeat:no-repeat;
+background-position:20px;
+padding:40px 40px 40px 40px;
+margin:40px;
+border-radius: 25px;
+border: 2px solid red;
+position:relative;
+display: block;
+font-size: 5.5rem;
+}
+
+li {
+  display: inline-block;
+  font-size: 2.3em;
+  list-style-position:inside;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+li span {
+color:red; 
+font-size: 12px;
+background-color: #ffcaca;
+background-size: 10px 10px;
+background-repeat:no-repeat;
+background-position:20px;
+padding:40px 40px 40px 40px;
+border-radius: 25px;
+border: 2px solid red;
+
+position:relative;
+  display: block;
+  font-size: 5.5rem;
+}
+
+</style>
